@@ -52,26 +52,26 @@ statSemantics.c  - traverses through parse tree and checks for proper variable d
 
 ====LL(1) GRAMMAR====
 
-<program> -> PROG_tk <vars> <block>                                                     (k = 0) - stores 0 tokens in nodes
-<block>   -> START_tk <vars> <stats> STOP_tk                                            (k = 0) - stores 0 tokens in nodes
-<vars>    -> VAR_tk IDENT_tk EQ_tk NUM_tk <mvars> | empty                               (k = 1) - stores 3 tokens in nodes
-<mvars>   -> DOT_tk | COL_tk IDENT_tk <mvars>                                           (k = 1) - stores 1 tokens in nodes
-<expr>    -> <M> <X>                                                                    (k = 0) - stores 0 tokens in nodes
-<X>       -> PLUS_tk <expr> | MINUS_tk <expr> | DIV_tk <expr> | MULT_tk <expr> | empty  (k = 1) - stores 1 tokens in nodes
-<M>       -> PCENT_tk <M> | <R>                                                         (k = 1) - stores 1 tokens in nodes
-<R>       -> LPAREN_tk <expr> RPAREN_tk | IDENT_tk | NUM_tk                             (k = 1) - stores 1 tokens in nodes
-<stats>   -> <stat> <mStat>                                                             (k = 0) - stores 0 tokens in nodes
-<mStat>   -> <stat> <mStat> | empty                                                     (k = 1) - stores 0 tokens in nodes
-<stat>    -> <in> | <out> | <block> | <iff> | <loop> | <assign>                         (k = 1) - stores 0 tokens in nodes
-<in>      -> READ_tk IDENT_tk DOT_tk                                                    (k = 0) - stores 1 tokens in nodes
-<out>     -> PRINT_tk <expr> DOT_tk                                                     (k = 0) - stores 0 tokens in nodes
-<iff>     -> IFF_tk LPAREN_tk <expr> <RO> <expr> RPAREN_tk <stat>                       (k = 0) - stores 0 tokens in nodes
-<loop>    -> ITER_tk LPAREN_tk <expr> <RO> <expr> RPAREN_tk <stat>                      (k = 0) - stores 0 tokens in nodes
-<assign>  -> LET_tk IDENT_tk EQ_tk <expr> DOT_tk                                        (k = 0) - stores 2 tokens in nodes
-<RO>      -> LT_tk <L> | GT_tk <G> | EQ_tk <E>                                          (k = 1) - stores 1 tokens in nodes
-<L>       -> LT_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
-<G>       -> GT_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
-<E>       -> EQ_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
+[program] -> PROG_tk <vars> <block>                                                     (k = 0) - stores 0 tokens in nodes
+[block]   -> START_tk <vars> <stats> STOP_tk                                            (k = 0) - stores 0 tokens in nodes
+[vars]    -> VAR_tk IDENT_tk EQ_tk NUM_tk <mvars> | empty                               (k = 1) - stores 3 tokens in nodes
+[mvars]   -> DOT_tk | COL_tk IDENT_tk <mvars>                                           (k = 1) - stores 1 tokens in nodes
+[expr]    -> <M> <X>                                                                    (k = 0) - stores 0 tokens in nodes
+[X]       -> PLUS_tk <expr> | MINUS_tk <expr> | DIV_tk <expr> | MULT_tk <expr> | empty  (k = 1) - stores 1 tokens in nodes
+[M]       -> PCENT_tk <M> | <R>                                                         (k = 1) - stores 1 tokens in nodes
+[R]       -> LPAREN_tk <expr> RPAREN_tk | IDENT_tk | NUM_tk                             (k = 1) - stores 1 tokens in nodes
+[stats]   -> <stat> <mStat>                                                             (k = 0) - stores 0 tokens in nodes
+[mStat]   -> <stat> <mStat> | empty                                                     (k = 1) - stores 0 tokens in nodes
+[stat]    -> <in> | <out> | <block> | <iff> | <loop> | <assign>                         (k = 1) - stores 0 tokens in nodes
+[in]      -> READ_tk IDENT_tk DOT_tk                                                    (k = 0) - stores 1 tokens in nodes
+[out]     -> PRINT_tk <expr> DOT_tk                                                     (k = 0) - stores 0 tokens in nodes
+[iff]     -> IFF_tk LPAREN_tk <expr> <RO> <expr> RPAREN_tk <stat>                       (k = 0) - stores 0 tokens in nodes
+[loop]    -> ITER_tk LPAREN_tk <expr> <RO> <expr> RPAREN_tk <stat>                      (k = 0) - stores 0 tokens in nodes
+[assign]  -> LET_tk IDENT_tk EQ_tk <expr> DOT_tk                                        (k = 0) - stores 2 tokens in nodes
+[RO]      -> LT_tk <L> | GT_tk <G> | EQ_tk <E>                                          (k = 1) - stores 1 tokens in nodes
+[L]       -> LT_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
+[G]       -> GT_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
+[E]       -> EQ_tk | empty                                                              (k = 1) - stores 1 tokens in nodes
 
 >>> TOKENS THAT ARE STORED IN NODES (IDs, numbers, operators):
     - IDENT_tk
